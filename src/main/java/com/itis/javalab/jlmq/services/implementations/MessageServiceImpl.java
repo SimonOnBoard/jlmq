@@ -57,9 +57,9 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
-    public void updateStatus(Status acknowledged, String messageId) {
+    public void updateStatus(Status status, String messageId) {
         messageRepository.findById(messageId).ifPresent(message -> {
-            message.setStatus(acknowledged);
+            message.setStatus(status);
             messageRepository.save(message);
         });
     }
